@@ -9,15 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Core.Persistence.Repositories;
-
+                                  //entitiynin kendisini ve Id sini belirtmemi gerekir 
 public interface IAsyncRepository<TEntity, TEntityId> : IQuery<TEntity>
-    where TEntity : Entity<TEntityId>//brand verdim ve ayrıca veri tipinide belirtmek istiyorum
+    where TEntity : Entity<TEntityId>//brand verdim ve ayrıca veri tipinide belirtmek istiyorum  //entityden inherti edilecek ve Id si olmalı başka bir şey olmamlı 
 {
     Task<TEntity?> GetAsync(
-        Expression<Func<TEntity, bool>> predicate,
-        Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
-        bool withDeleted = false,
-        bool enableTracking = true,
+        Expression<Func<TEntity, bool>> predicate, //landa ile sorgu yapmak için 
+        Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null, // join yaaparak da data getirme işlemi 
+        bool withDeleted = false,//silinilenleri sorguda getireyim mi getirmiyeyim mi demeke biz getirme diyoruz 
+        bool enableTracking = true,//
         CancellationToken cancellationToken = default );
 
 
