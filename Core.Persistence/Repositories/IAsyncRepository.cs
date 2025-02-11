@@ -30,6 +30,7 @@ public interface IAsyncRepository<TEntity, TEntityId> : IQuery<TEntity>
         bool withDeleted = false,
         bool enableTracking = true,
         CancellationToken cancellationToken = default
+        //
     );
 
     Task<Paginate<TEntity>> GetListByDynamicAsync(
