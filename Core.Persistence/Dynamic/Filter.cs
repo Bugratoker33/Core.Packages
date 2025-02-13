@@ -13,7 +13,7 @@ public class Filter
     public string Operator { get; set; }
                  
     public string? Logic { get; set; }
-    public IEnumerable<Filter> Filters { get; set; }//bir filtreye başka filtreleme uygulama 
+    public IEnumerable<Filter>? Filters { get; set; }//bir filtreye başka filtreleme uygulama 
 
     public Filter()
     {
